@@ -12,7 +12,7 @@
       if(o1)o1.style.transform='translateY('+y*0.4+'px)';
       if(o2)o2.style.transform='translateY('+(-y*0.2)+'px)';
     }
-    if(seal){var r=seal.getBoundingClientRect();seal.style.transform='rotate('+(r.top*0.15)+'deg)';}
+
   }
   addEventListener('scroll',onScroll,{passive:true});onScroll();
 

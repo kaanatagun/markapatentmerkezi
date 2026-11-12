@@ -52,3 +52,49 @@
     });
   });
 })();
+
+/* WhatsApp ön formu: konu + ad soyad + telefon + e-posta, ardından WhatsApp mesajı */
+(function(){
+  var L=(document.documentElement.lang||'tr'),
+  T={
+   tr:{h:'WhatsApp ile bize ulaşın',p:'Birkaç bilgi bırakın, mesajınız hazır olarak WhatsApp\'a aktarılsın.',q:'Ne yapmak istiyorsunuz?',
+       o:[['Marka tescili','Marka tescili almak istiyorum'],['Patent','Bir fikrim / buluşum var, patent almak istiyorum'],['Tasarım tescili','Bir görselim / tasarımım var, tasarım tescili almak istiyorum']],
+       n:'Ad Soyad',t:'Telefon',e:'E-posta',b:'WhatsApp\'tan gönder',
+       note:'Mesajınızı aldıktan sonra mesai saatleri içinde <b>25 dakika içinde</b> size ulaşıyoruz.',
+       m:function(d){return 'Merhaba, size web sitenizden (markapatentmerkezi.com) ulaşıyorum.\n\nKonu: '+d.o+'\nAd Soyad: '+d.n+'\nTelefon: '+d.t+'\nE-posta: '+d.e}},
+   en:{h:'Contact us on WhatsApp',p:'Leave a few details and your message will open ready in WhatsApp.',q:'What would you like to do?',
+       o:[['Trademark registration','I want to register a trademark'],['Patent','I have an idea / invention and want a patent'],['Design registration','I have a visual / design and want design registration']],
+       n:'Full name',t:'Phone',e:'Email',b:'Send via WhatsApp',
+       note:'Once we receive your message, we contact you <b>within 25 minutes</b> during office hours.',
+       m:function(d){return 'Hello, I am contacting you through your website (markapatentmerkezi.com).\n\nTopic: '+d.o+'\nName: '+d.n+'\nPhone: '+d.t+'\nEmail: '+d.e}},
+   ar:{h:'تواصل معنا عبر واتساب',p:'اترك بعض المعلومات وستُفتح رسالتك جاهزة في واتساب.',q:'ماذا تريد أن تفعل؟',
+       o:[['تسجيل علامة تجارية','أريد تسجيل علامة تجارية'],['براءة اختراع','لديّ فكرة / اختراع وأريد براءة اختراع'],['تسجيل تصميم','لديّ صورة / تصميم وأريد تسجيل التصميم']],
+       n:'الاسم الكامل',t:'الهاتف',e:'البريد الإلكتروني',b:'أرسل عبر واتساب',
+       note:'بعد استلام رسالتك، نتواصل معك <b>خلال 25 دقيقة</b> في ساعات العمل.',
+       m:function(d){return 'مرحباً، أتواصل معكم من خلال موقعكم الإلكتروني (markapatentmerkezi.com).\n\nالموضوع: '+d.o+'\nالاسم: '+d.n+'\nالهاتف: '+d.t+'\nالبريد الإلكتروني: '+d.e}}
+  }[L]||null;
+  if(!T)return;
+  var num=null;
+  document.querySelectorAll('a[href^="https://wa.me/"]').forEach(function(a){var m=a.href.match(/wa\.me\/(\d+)/);if(m)num=m[1];});
+  if(!num)return;
+  var opts=T.o.map(function(o,i){return '<label class="wa-opt"><input type="radio" name="wa_o" value="'+o[1]+'"'+(i===0?' checked':'')+'><span><b>'+o[0]+'</b><small>'+o[1]+'</small></span></label>'}).join('');
+  var box=document.createElement('div');box.className='wa-modal';box.hidden=true;
+  box.innerHTML='<div class="wa-back"></div><form class="wa-card" novalidate><button type="button" class="wa-x" aria-label="×">×</button><h3>'+T.h+'</h3><p class="wa-p">'+T.p+'</p><div class="wa-q">'+T.q+'</div><div class="wa-opts">'+opts+'</div>'+
+   '<label>'+T.n+'<input name="n" required autocomplete="name"></label><label>'+T.t+'<input name="t" type="tel" required autocomplete="tel"></label><label>'+T.e+'<input name="e" type="email" required autocomplete="email"></label>'+
+   '<button class="btn wa-send" type="submit">'+T.b+'</button><p class="wa-note">'+T.note+'</p></form>';
+  document.body.appendChild(box);
+  var f=box.querySelector('form');
+  function open(e){e.preventDefault();box.hidden=false;document.body.style.overflow='hidden';setTimeout(function(){f.n.focus()},50);}
+  function close(){box.hidden=true;document.body.style.overflow='';}
+  document.addEventListener('click',function(e){var a=e.target.closest&&e.target.closest('a[href^="https://wa.me/"]');if(a)open(e);});
+  box.querySelector('.wa-back').onclick=close;box.querySelector('.wa-x').onclick=close;
+  document.addEventListener('keydown',function(e){if(e.key==='Escape'&&!box.hidden)close();});
+  f.addEventListener('submit',function(e){
+    e.preventDefault();
+    var ok=true;['n','t','e'].forEach(function(k){var i=f[k];var bad=!i.value.trim()||(k==='e'&&!/^\S+@\S+\.\S+$/.test(i.value));i.classList.toggle('bad',bad);if(bad)ok=false;});
+    if(!ok)return;
+    var d={o:f.querySelector('input[name=wa_o]:checked').value,n:f.n.value.trim(),t:f.t.value.trim(),e:f.e.value.trim()};
+    var u='https://wa.me/'+num+'?text='+encodeURIComponent(T.m(d));if(/Android|iPhone|iPad|iPod/i.test(navigator.userAgent))location.href=u;else window.open(u,'_blank','noopener');
+    close();
+  });
+})();

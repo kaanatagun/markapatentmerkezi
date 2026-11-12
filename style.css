@@ -418,3 +418,9 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07)}
 .hero-grid.g2{grid-template-columns:1fr 1fr;align-items:center;min-height:calc(100vh - 84px - 110px)}
 .hero-grid.g2>div:first-child{max-width:560px;justify-self:center}
 @media (max-width:1000px){.hero-grid.g2{min-height:0}.hero-grid.g2>div:first-child{justify-self:stretch;max-width:none}}
+/* ana sayfa: koruma alanları + sorgulama tek bölüm */
+#sorgulama{padding:80px 0 100px}
+.alan-head{max-width:none;margin-bottom:40px;padding-bottom:22px;border-bottom:1px solid rgba(255,255,255,.12)}
+.alan-head h2{font-size:clamp(38px,5vw,62px)!important;margin:0!important}
+.q-h{font-family:var(--serif);font-weight:400;font-size:clamp(26px,3vw,34px);color:#fff;line-height:1.2;margin-bottom:14px}
+.query-box{align-items:stretch}

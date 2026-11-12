@@ -414,3 +414,7 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07)}
 .sgrid.c4{grid-template-columns:repeat(4,1fr)}
 @media (max-width:1000px){.sgrid.c4{grid-template-columns:1fr 1fr}}
 @media (max-width:640px){.sgrid.c4{grid-template-columns:1fr}}
+/* ana sayfa girişini ortala */
+.hero-grid.g2{grid-template-columns:1fr 1fr;align-items:center;min-height:calc(100vh - 84px - 110px)}
+.hero-grid.g2>div:first-child{max-width:560px;justify-self:center}
+@media (max-width:1000px){.hero-grid.g2{min-height:0}.hero-grid.g2>div:first-child{justify-self:stretch;max-width:none}}

@@ -442,3 +442,12 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07)}
 .globe-wrap{aspect-ratio:auto}
 .globe-wrap canvas{width:100%;height:auto;aspect-ratio:1}
 @media (max-width:1000px){.hero-grid.g2{grid-template-columns:1fr;min-height:0}.hero-ctas.three{flex-direction:row}}
+/* giriş: güven maddeleri ve WhatsApp satırı */
+.hero-trust{display:grid;grid-template-columns:repeat(3,1fr);gap:18px;margin-top:40px;padding-top:26px;border-top:1px solid rgba(255,255,255,.12)}
+.hero-trust b{display:block;font-family:"Libre Caslon Text",Georgia,serif;font-weight:400;font-size:17px;color:#fff;margin-bottom:4px}
+[dir=rtl] .hero-trust b{font-family:var(--serif)}
+.hero-trust span{font-size:13.5px;color:#a9b4c9;line-height:1.5;display:block}
+.hero-wa{display:inline-flex;align-items:center;gap:10px;margin-top:26px;color:#d5f5e3;text-decoration:none;font-weight:600;font-size:15px}
+.hero-wa svg{width:22px;height:22px;color:#25d366}
+.hero-wa:hover span{text-decoration:underline}
+@media (max-width:640px){.hero-trust{grid-template-columns:1fr;gap:12px}}

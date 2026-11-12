@@ -98,3 +98,11 @@
     close();
   });
 })();
+
+/* ofis saatleri ve giriş butonlarından sorgulama sekmesi seçimi */
+(function(){
+  var L=document.documentElement.lang||'tr';
+  function tick(){document.querySelectorAll('[data-tz]').forEach(function(e){try{e.textContent=new Intl.DateTimeFormat(L==='ar'?'ar-u-nu-latn':L,{hour:'2-digit',minute:'2-digit',hour12:false,timeZone:e.dataset.tz}).format(new Date())}catch(x){}});}
+  tick();setInterval(tick,20000);
+  document.querySelectorAll('[data-q]').forEach(function(a){a.addEventListener('click',function(){var t=document.querySelector('.tab[data-type="'+a.dataset.q+'"]');if(t)t.click();});});
+})();

@@ -385,3 +385,14 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07)}
 .door p{color:#b0bbcf;font-size:15.5px;flex:1}
 .door .more{margin-top:22px;color:var(--gold2);font-weight:600;font-size:14.5px}
 @media (max-width:1000px){.hero-grid.g2{grid-template-columns:1fr;gap:10px;padding-top:48px}.globe-wrap{max-width:440px;order:-1}.doors{grid-template-columns:1fr}}
+.menu a,.btn,.logo-text b{white-space:nowrap}
+@media (max-width:1280px){.menu{gap:18px}.menu>li>a{font-size:14px}.logo-text b{font-size:18px}.nav{gap:14px}}
+@media (max-width:1140px){
+  .burger{display:block}
+  .menu{position:fixed;top:0;inset-inline-end:0;height:100vh;width:min(310px,86vw);background:var(--navy2);flex-direction:column;align-items:flex-start;padding:90px 28px;gap:20px;transform:translateX(100%);visibility:hidden;transition:transform .3s;box-shadow:-10px 0 30px rgba(0,0,0,.3);overflow:auto}
+  [dir=rtl] .menu{transform:translateX(-100%)}
+  .menu.open{transform:none;visibility:visible}
+  .sub{position:static;opacity:1;visibility:visible;transform:none;box-shadow:none;border:0;background:none;padding:6px 0 0;margin:0;padding-inline-start:14px}
+  .sub:before{display:none}.sub a{padding:6px 0;font-size:14px;color:#b7c0d3}
+  .has-sub>a i{display:none}.langs{border:0;padding:0}
+}

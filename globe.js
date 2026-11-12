@@ -45,7 +45,7 @@
     ctx.strokeStyle='rgba(255,255,255,.05)';ctx.lineWidth=.6;ctx.beginPath();path(d3.geoGraticule10());ctx.stroke();
     // kara
     if(dots.length){
-      ctx.fillStyle='rgba(226,194,127,.55)';var s=Math.max(1,W/420);
+      ctx.fillStyle='rgba(226,194,127,.72)';var s=Math.max(1.2,W/380);
       for(var i=0;i<dots.length;i++){var d=dots[i];if(d3.geoDistance(d,[-lam,-phi])>1.55)continue;var p=proj(d);ctx.fillRect(p[0]-s/2,p[1]-s/2,s,s);}
     } else if(land){ctx.fillStyle='rgba(226,194,127,.18)';ctx.beginPath();path(land);ctx.fill();}
     // yaylar
@@ -56,13 +56,13 @@
       var line={type:'LineString',coordinates:[]};for(var k=0;k<=40;k++){var f=tail+(head-tail)*k/40;line.coordinates.push(ip(f));}
       ctx.strokeStyle='rgba(226,194,127,.75)';ctx.lineWidth=1.3;ctx.beginPath();path(line);ctx.stroke();
       if(d3.geoDistance(to,center)<1.5){var p=proj(to);ctx.fillStyle='#e2c27f';ctx.beginPath();ctx.arc(p[0],p[1],2.6,0,7);ctx.fill();
-        if(W>360){ctx.font='500 '+Math.round(W/44)+'px Inter, sans-serif';ctx.fillStyle='rgba(230,234,242,.85)';ctx.textAlign='left';ctx.fillText(N[dd[0]]||dd[0],p[0]+6,p[1]-6);}}
+        if(W>280){ctx.font='500 '+Math.max(11,Math.round(W/44))+'px Inter, sans-serif';ctx.fillStyle='rgba(230,234,242,.85)';ctx.textAlign='left';ctx.fillText(N[dd[0]]||dd[0],p[0]+6,p[1]-6);}}
     });
     // İstanbul
     if(d3.geoDistance(IST,center)<1.5){var q=proj(IST),pulse=reduce?0:(t*0.0012)%1;
       ctx.strokeStyle='rgba(226,194,127,'+(1-pulse)+')';ctx.lineWidth=1.5;ctx.beginPath();ctx.arc(q[0],q[1],4+pulse*16,0,7);ctx.stroke();
       ctx.fillStyle='#fff';ctx.beginPath();ctx.arc(q[0],q[1],4,0,7);ctx.fill();
-      ctx.font='600 '+Math.round(W/36)+'px Inter, sans-serif';ctx.fillStyle='#fff';ctx.fillText(N.ist||'İstanbul',q[0]+9,q[1]+4);}
+      ctx.font='600 '+Math.max(12,Math.round(W/36))+'px Inter, sans-serif';ctx.fillStyle='#fff';ctx.fillText(N.ist||'İstanbul',q[0]+9,q[1]+4);}
     // kenar
     ctx.strokeStyle='rgba(226,194,127,.35)';ctx.lineWidth=1;ctx.beginPath();path({type:'Sphere'});ctx.stroke();
     if(!reduce||!land) requestAnimationFrame(frame);

@@ -284,3 +284,16 @@ footer a{color:#c3cbdb;text-decoration:none}footer a:hover{color:var(--gold2)}
   .nav{height:70px}.logo-text b{font-size:16px}.logo-icon{width:36px}.logo-text small{font-size:9.5px;letter-spacing:1.8px}
   .wa-float{width:52px;height:52px;bottom:16px;inset-inline-end:16px}
 }
+/* LinkedIn yazıları */
+.posts{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+.post{display:flex;flex-direction:column;background:var(--white);border:1px solid var(--line);border-radius:14px;padding:28px 30px;text-decoration:none;transition:transform .3s,box-shadow .3s,border-color .3s;border-top:3px solid var(--navy)}
+.post:hover{transform:translateY(-4px);box-shadow:0 20px 44px rgba(20,33,61,.1);border-top-color:var(--gold)}
+.post .tag{font-size:11px;letter-spacing:2.2px;text-transform:uppercase;color:#0a66c2;font-weight:700;margin-bottom:12px}
+.post h3{font-family:var(--serif);font-weight:400;font-size:20px;line-height:1.35;color:var(--navy);margin-bottom:10px}
+.post p{color:var(--muted);font-size:14.5px;flex:1}
+.post .more{margin-top:18px;font-weight:600;font-size:14px;color:var(--navy)}
+.post[dir=ltr]{text-align:left;font-family:var(--sans)}
+.post[dir=ltr] h3{font-family:"Libre Caslon Text",Georgia,serif}
+.soc.col{flex-direction:column;gap:8px}
+@media (max-width:1000px){.posts{grid-template-columns:1fr 1fr}}
+@media (max-width:640px){.posts{grid-template-columns:1fr}}

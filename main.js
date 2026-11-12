@@ -23,7 +23,7 @@
   // sayaçlar
   var co=new IntersectionObserver(function(es){es.forEach(function(e){
     if(!e.isIntersecting)return;var el=e.target,t=+el.dataset.to,s=el.dataset.suffix||'',st=null;
-    function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/1400,1);el.textContent=Math.round(t*(1-Math.pow(1-p,3))).toLocaleString('tr-TR')+s;if(p<1)requestAnimationFrame(step)}
+    function step(ts){if(!st)st=ts;var p=Math.min((ts-st)/1400,1);el.textContent=Math.round(t*(1-Math.pow(1-p,3))).toLocaleString(document.documentElement.lang==='tr'?'tr-TR':'en-US')+s;if(p<1)requestAnimationFrame(step)}
     requestAnimationFrame(step);co.unobserve(el);
   })},{threshold:.6});
   document.querySelectorAll('[data-to]').forEach(function(el){co.observe(el)});
@@ -36,6 +36,8 @@
   // gönderim sonrası teşekkür
   if(/tesekkurler|thanks/.test(location.search)){
     var f=document.querySelector('#sorgulama form');
+    var L=document.documentElement.lang,M={tr:['Teşekkürler!','Talebiniz bize ulaştı. En kısa sürede size dönüş yapacağız.'],en:['Thank you!','Your request has reached us. We will get back to you shortly.'],ar:['شكراً لك!','وصلنا طلبك، وسنعود إليك في أقرب وقت.']}[L]||['Teşekkürler!',''];
+    if(f){f.innerHTML='<h3 style="font-family:var(--serif);font-size:26px;color:var(--navy);margin-bottom:10px">'+M[0]+'</h3><p style="color:var(--muted)">'+M[1]+'</p>';f=null}
     if(f)f.innerHTML='<h3 style="font-family:var(--serif);font-size:26px;color:var(--navy);margin-bottom:10px">'+(document.documentElement.lang==='en'?'Thank you!':'Teşekkürler!')+'</h3><p style="color:var(--muted)">'+(document.documentElement.lang==='en'?'Your request has reached us. We will get back to you shortly.':'Talebiniz bize ulaştı. En kısa sürede size dönüş yapacağız.')+'</p>';
   }
 

@@ -35,7 +35,7 @@
 
   // gönderim sonrası teşekkür
   if(/tesekkurler|thanks/.test(location.search)){
-    var f=document.querySelector('#sorgulama form');
+    var f=document.querySelector((location.hash==='#ik'?'#ik':'#sorgulama')+' form');
     var L=document.documentElement.lang,M={tr:['Teşekkürler!','Talebiniz bize ulaştı. En kısa sürede size dönüş yapacağız.'],en:['Thank you!','Your request has reached us. We will get back to you shortly.'],ar:['شكراً لك!','وصلنا طلبك، وسنعود إليك في أقرب وقت.']}[L]||['Teşekkürler!',''];
     if(f){f.innerHTML='<h3 style="font-family:var(--serif);font-size:26px;color:var(--navy);margin-bottom:10px">'+M[0]+'</h3><p style="color:var(--muted)">'+M[1]+'</p>';f=null}
     if(f)f.innerHTML='<h3 style="font-family:var(--serif);font-size:26px;color:var(--navy);margin-bottom:10px">'+(document.documentElement.lang==='en'?'Thank you!':'Teşekkürler!')+'</h3><p style="color:var(--muted)">'+(document.documentElement.lang==='en'?'Your request has reached us. We will get back to you shortly.':'Talebiniz bize ulaştı. En kısa sürede size dönüş yapacağız.')+'</p>';

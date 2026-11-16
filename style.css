@@ -451,3 +451,27 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07)}
 .hero-wa svg{width:22px;height:22px;color:#25d366}
 .hero-wa:hover span{text-decoration:underline}
 @media (max-width:640px){.hero-trust{grid-template-columns:1fr;gap:12px}}
+
+/* v14 */
+.topbar{background:var(--navy3);color:#b7c0d3;font-size:13px;border-bottom:1px solid rgba(255,255,255,.08)}
+.tb-in{display:flex;justify-content:space-between;align-items:center;gap:16px;min-height:38px}
+.tb-r{display:flex;gap:22px}.tb-r a{color:#dfe4ee;text-decoration:none}.tb-r a:hover{color:var(--gold2)}
+.sols{grid-template-columns:repeat(3,1fr)}
+.sols .door{padding:30px 28px}.sols .door h3{font-size:23px;line-height:1.25}
+.solutions{padding:110px 0}.home-contact{padding:110px 0}.intl-contact{padding:100px 0;border-top:1px solid rgba(255,255,255,.08)}
+.c-wa b{display:block;margin:4px 0}
+.sjump{display:flex;flex-wrap:wrap;gap:10px;margin:-24px 0 56px}
+.sjump a{text-decoration:none;font-size:14px;color:#dfe4ee;border:1px solid rgba(255,255,255,.18);border-radius:30px;padding:8px 16px;transition:all .2s}
+.sjump a:hover{border-color:var(--gold);color:var(--gold2)}
+.sgroup{scroll-margin-top:100px}
+.about-top{max-width:880px;padding:20px 0 56px}
+.about-h{font-size:clamp(40px,5.4vw,68px)!important;margin-bottom:24px}
+.about-top .a-lead{font-size:19px;color:#dfe4ee}
+.about-sec .stats{margin-bottom:72px}
+.about-cols{display:grid;grid-template-columns:repeat(3,1fr);gap:40px}
+.ab-h{font-family:var(--serif);font-weight:400;font-size:24px;color:#fff;margin-bottom:12px;padding-top:18px;border-top:2px solid var(--gold)}
+.about-cols p{font-size:15.5px}
+.about-cta{margin-top:64px}
+.cta-btns{display:flex;gap:12px;flex-wrap:wrap}
+@media (max-width:1000px){.sols{grid-template-columns:1fr 1fr}.about-cols{grid-template-columns:1fr}.about-sec .stats .wrap{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:640px){.tb-l{display:none}.tb-in{justify-content:center}.tb-r{gap:14px;font-size:12.5px}.tb-r a[href^="mailto"]{display:none}.sols{grid-template-columns:1fr}.solutions,.home-contact,.intl-contact{padding:72px 0}.about-sec .stats .wrap{grid-template-columns:1fr 1fr}.stat{padding:20px 12px}.amazon{flex-direction:column;align-items:flex-start}}

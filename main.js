@@ -106,3 +106,9 @@
   tick();setInterval(tick,20000);
   document.querySelectorAll('[data-q]').forEach(function(a){a.addEventListener('click',function(){var t=document.querySelector('.tab[data-type="'+a.dataset.q+'"]');if(t)t.click();});});
 })();
+
+/* hizmetler: yurt içi / yurt dışı süzgeci */
+(function(){var f=document.querySelector('.sfilter');if(!f)return;
+f.addEventListener('click',function(e){var b=e.target.closest('button');if(!b)return;var v=b.dataset.f;
+f.querySelectorAll('button').forEach(function(x){x.classList.toggle('on',x===b)});
+document.querySelectorAll('.sgroup').forEach(function(g){var n=0;g.querySelectorAll('.scard').forEach(function(c){var ok=v==='all'||c.dataset.scope===v||c.dataset.scope==='both';c.classList.toggle('hide',!ok);if(ok){n++;c.classList.add('in')}});g.classList.toggle('hide',n===0);var k=g.querySelector('.cnt');if(k)k.textContent=n;});});})();

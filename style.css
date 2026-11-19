@@ -487,3 +487,25 @@ footer{background:var(--navy);border-top:1px solid rgba(255,255,255,.07)}
 .logo-text b{font-size:18px;letter-spacing:1.4px;line-height:1.1}
 @media (max-width:1280px){.logo-text b{font-size:16px}}
 @media (max-width:600px){.logo-text b{font-size:13.5px;letter-spacing:1px}}
+
+/* 19 Kasım 2026: iletişim sayfası tek ekranda */
+.p-iletisim section{padding:56px 0}
+.p-iletisim section:first-of-type{padding-top:64px}
+.p-iletisim .contact>.wrap>.eyebrow{margin-bottom:16px}
+.p-iletisim .c-wa{padding:22px;gap:10px}
+.p-iletisim .c-wa b{font-size:22px}
+.p-iletisim .c-wa .more{margin-top:8px}
+.p-iletisim .c-item{padding:22px}
+.p-iletisim .c-item h3{margin:14px 0 6px}
+.p-iletisim .c-item h3:first-child{margin-top:0}
+.p-iletisim .c-item a.big{font-size:17px;line-height:1.5}
+.p-iletisim .c-item p,.p-iletisim .c-item a{font-size:14.5px}
+.p-iletisim .hr{padding:40px 0}
+.p-iletisim .cv-box{grid-template-columns:auto 1fr;gap:28px}
+.p-iletisim .cv-box .h2{font-size:30px}
+.p-iletisim .cv-box form{display:grid;grid-template-columns:1fr 1fr 1.2fr auto;gap:12px;align-items:end;padding:20px}
+.p-iletisim .cv-box form .row{display:contents}
+.p-iletisim .cv-box form label{margin-top:0}
+.p-iletisim .cv-box form input{margin-bottom:0}
+.p-iletisim .cv-box form .btn{margin:0;white-space:nowrap}
+@media (max-width:900px){.p-iletisim .cv-box{grid-template-columns:1fr}.p-iletisim .cv-box form{grid-template-columns:1fr}}
